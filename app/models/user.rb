@@ -6,6 +6,6 @@ class User < ActiveRecord::Base
 
   has_many :accounts
 
-
+  devise :omniauthable, :omniauth_providers => [:facebook]
 
 end

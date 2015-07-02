@@ -12,6 +12,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise', '~> 3.5.1'
 gem 'bootstrap-sass', '~> 3.3.5.1'
 
+gem 'omniauth-facebook'
+
 
 group :development do
   gem 'better_errors'
