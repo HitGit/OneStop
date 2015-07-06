@@ -236,6 +236,11 @@ Devise.setup do |config|
   config.sign_out_via = :delete
 
   # ==> OmniAuth
+  #
+  OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE if Rails.env.development?
+
+  config.omniauth :google_oauth2, "458578899897-1pjl2ptgjjsut0qvl0dhlt7ull240rsl.apps.googleusercontent.com", "OG6LuSf451Ko02A_UeSFF2b_", :scope => "userinfo.email,userinfo.profile"
+
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
