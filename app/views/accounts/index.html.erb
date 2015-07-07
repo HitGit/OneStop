@@ -8,7 +8,7 @@
     </tr>
   </thead>
 
-  <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
+
 
 
   <script>
@@ -29,7 +29,7 @@
       }(document, 'script', 'facebook-jssdk'));
   </script>
 
-  <!--<%=# link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>-->
+
 
 
 
@@ -47,5 +47,8 @@
 </table>
 
 <br>
+
+
+<%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %><br>
 
 <%= link_to 'New Account', new_account_path %>
