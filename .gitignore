@@ -13,3 +13,4 @@
 /tmp
 .idea
 database.yml
+config/initializers/_env.rb
