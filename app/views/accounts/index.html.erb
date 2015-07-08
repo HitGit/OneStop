@@ -23,10 +23,11 @@
 
 <br>
 
-<%= link_to 'New Account', new_account_path %><br>
 
-<%= link_to 'Sign Out', destroy_user_session_path %><br>
-
-<% if user_signed_in? %>
-    <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %><br>
+<%  if user_signed_in? %>
+  <%= link_to 'Sign Out', destroy_user_session_path, method: :delete%><br>
+<%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %><br>
+    <% else %>
+    <%= link_to 'New Account', new_account_path %><br>
+    <%= link_to 'Sign In', new_user_session_path %>
 <% end %>
