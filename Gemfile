@@ -17,6 +17,7 @@ gem "omniauth-google-oauth2"
 gem 'omniauth-facebook'
 
 
+gem 'google_plus', '~> 0.2.4'
 
 group :development do
   gem 'better_errors'
