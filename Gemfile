@@ -14,6 +14,9 @@ gem 'bootstrap-sass', '~> 3.3.5.1'
 gem 'tzinfo-data'
 gem "omniauth-google-oauth2"
 
+gem 'omniauth-facebook'
+
+
 
 group :development do
   gem 'better_errors'
