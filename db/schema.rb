@@ -38,6 +38,14 @@ ActiveRecord::Schema.define(version: 20150710224057) do
     t.integer  "user_id"
   end
 
+  create_table "googleinfos", force: :cascade do |t|
+    t.string  "email"
+    t.string  "user"
+    t.string  "first_name"
+    t.string  "last_name"
+    t.integer "user_id"
+  end
+
   create_table "twitterinfos", force: :cascade do |t|
     t.integer "uid"
     t.string  "name"

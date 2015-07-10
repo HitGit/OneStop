@@ -236,6 +236,9 @@ Devise.setup do |config|
   config.sign_out_via = :delete
 
   # ==> OmniAuth
+  #
+  OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE if Rails.env.development?
+
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
@@ -263,6 +266,8 @@ Devise.setup do |config|
   # config.omniauth_path_prefix = '/my_engine/users/auth'
   config.omniauth :facebook, ENV['FACEBOOK_API_KEY'], ENV['FACEBOOK_API_SECRET'],
                   :scope => 'public_profile, email, user_friends', :display => 'popup'
+  config.omniauth :google_oauth2, ENV['GOOGLE_OAUTH2_API_KEY'], ENV['GOOGLE_OAUTH2_API_SECRET'],
+                  :scope => "userinfo.email,userinfo.profile,https://www.googleapis.com/auth/activity",prompt: 'consent'
 
   config.omniauth :twitter, ENV['TWITTER_API_KEY'], ENV['TWITTER_API_SECRET']
 end
