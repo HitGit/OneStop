@@ -15,6 +15,7 @@ gem 'bootstrap-sass', '~> 3.3.5.1'
 gem 'omniauth-facebook'
 gem 'bootswatch-rails'
 
+# ;ladsf;lasjdf;lasdf;
 
 
 group :development do
@@ -25,20 +26,13 @@ group :development do
   gem 'guard-livereload', '~> 2.4', require: false
 end
 
-
-
 group :test do
   gem 'shoulda-matchers'
 end
 
-
-
 group :development, :test do
-
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'rspec-rails'
-
-
 end

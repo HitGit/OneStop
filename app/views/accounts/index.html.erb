@@ -25,6 +25,7 @@
 
 
 <%  if user_signed_in? %>
+<<<<<<< HEAD
 
 
   <%= link_to 'Sign Out', destroy_user_session_path, method: :delete%><br>
@@ -35,3 +36,12 @@
     <%= link_to 'New Account', new_account_path %><br>
 
 <% end %>
+=======
+  <%= button_to 'Sign Out', '/users/sign_out', method: :delete %>
+  <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %><br>
+    <% else %>
+    <%= button_to 'Sign In', '/users/sign_in', method: :get %>
+    <%= button_to 'Sign Up', '/users/sign_up', method: :get %>
+    <%= button_to 'New Account', '/accounts/new', method: :get %>
+<% end %>
+>>>>>>> b488e6251172277206b49216093eb2a1862aa184
