@@ -1,13 +1,12 @@
 class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :omniauthable, :omniauth_providers => [:facebook, :google_oauth2]
+         :omniauthable, :omniauth_providers => [:facebook, :google_oauth2, :twitter]
 
   has_many :accounts
   has_one :googleinfo
   has_one :facebookinfo
+  has_one :twitterinfo
 
   def fb_from_omniauth(auth)
     fb_info = self.facebookinfo || self.build_facebookinfo
@@ -23,9 +22,9 @@ class User < ActiveRecord::Base
     #fb_info.urls = auth.info.urls if auth.info.has_key? 'urls'
 
     fb_info.save
-    return fb_info
+    fb_info
   end
-
+  
   def google_from_omniauth(auth)
     if self.googleinfo
       google_info = self.googleinfo
@@ -47,4 +46,26 @@ class User < ActiveRecord::Base
     google_info
   end
 
+  def twitter_from_omniauth(auth)
+    twt_info = self.twitterinfo || self.build_twitterinfo
+    twt_info.name = auth.info.name
+    twt_info.nickname = auth.info.nickname
+    twt_info.location = auth.info.location if auth.info.has_key? 'location'
+    twt_info.description = auth.info.description if auth.info.has_key? 'description'
+
+    twt_info.save
+    twt_info
+  end
+
 end
+
+
+  # class User < ActiveRecord::Base
+  #   def self.new_with_session(params, session)
+  #     super.tap do |user|
+  #       if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
+  #         user.email = data["email"] if user.email.blank?
+  #       end
+  #     end
+  #   end
+  # end

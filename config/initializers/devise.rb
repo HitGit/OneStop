@@ -251,7 +251,6 @@ Devise.setup do |config|
   #   manager.intercept_401 = false
   #   manager.default_strategies(scope: :user).unshift :some_external_strategy
   # end
-
   # ==> Mountable engine configurations
   # When using Devise inside an engine, let's call it `MyEngine`, and this engine
   # is mountable, there are some extra configurations to be taken into account.
@@ -270,4 +269,5 @@ Devise.setup do |config|
   config.omniauth :google_oauth2, ENV['GOOGLE_OAUTH2_API_KEY'], ENV['GOOGLE_OAUTH2_API_SECRET'],
                   :scope => "userinfo.email,userinfo.profile,https://www.googleapis.com/auth/activity",prompt: 'consent'
 
+  config.omniauth :twitter, ENV['TWITTER_API_KEY'], ENV['TWITTER_API_SECRET']
 end
