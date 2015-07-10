@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150630204358) do
+ActiveRecord::Schema.define(version: 20150708180402) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,21 @@ ActiveRecord::Schema.define(version: 20150630204358) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "password"
+  end
+
+  create_table "facebookinfos", force: :cascade do |t|
+    t.string   "name"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email",              default: "", null: false
+    t.string   "gender"
+    t.string   "image"
+    t.string   "uid"
+    t.string   "locale"
+    t.string   "encrypted_password", default: "", null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.integer  "user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -36,6 +51,8 @@ ActiveRecord::Schema.define(version: 20150630204358) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "provider"
+    t.string   "uid"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

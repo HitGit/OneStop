@@ -9,5 +9,5 @@ class SessionsController < ApplicationController
     session[:account_id]= nil
     redirect_to root_url notice: "Signed out successfully."
   end
-
+  
 end
