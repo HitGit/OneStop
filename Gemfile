@@ -14,6 +14,7 @@ gem 'bootstrap-sass', '~> 3.3.5.1'
 
 gem 'omniauth-facebook'
 
+# ;ladsf;lasjdf;lasdf;
 
 
 group :development do
@@ -39,4 +40,3 @@ group :development, :test do
 
 
 end
-
