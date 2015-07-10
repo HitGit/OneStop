@@ -16,6 +16,7 @@ gem "omniauth-google-oauth2"
 
 gem 'omniauth-facebook'
 
+# ;ladsf;lasjdf;lasdf;
 
 gem 'google_plus', '~> 0.2.4'
 
@@ -42,4 +43,3 @@ group :development, :test do
 
 
 end
-
