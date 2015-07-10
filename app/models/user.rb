@@ -1,6 +1,5 @@
+
 class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:facebook, :twitter]
@@ -18,7 +17,6 @@ class User < ActiveRecord::Base
     fb_info.last_name = auth.info.last_name
     fb_info.gender = auth.info.gender
     fb_info.image = auth.info.image
-    # fb_info.urls = auth.info.urls
     fb_info.uid = auth.info.uid
     fb_info.locale = auth.info.locale
 
@@ -27,17 +25,13 @@ class User < ActiveRecord::Base
   end
 
   def twitter_from_omniauth(auth)
-    raise auth
+    twt_info = self.twitterinfo || self.build_twitterinfo
+    twt_info.name = auth.info.name
+    twt_info.nickname = auth.info.nickname
+    twt_info.location = auth.info.location if auth.info.has_key? 'location'
+    twt_info.description = auth.info.description if auth.info.has_key? 'description'
+
+    twt_info.save
+    twt_info
   end
 end
-
-
-  # class User < ActiveRecord::Base
-  #   def self.new_with_session(params, session)
-  #     super.tap do |user|
-  #       if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
-  #         user.email = data["email"] if user.email.blank?
-  #       end
-  #     end
-  #   end
-  # end
