@@ -1,8 +1,17 @@
+<p id="notice"><%= notice %></p>
 
-  <h1 align="right">OneStop </h1><hr>
+
+
+
+<!-- I space with br's =).....nub -->
+  <h1 align="right">OneStop </h1>
+  <div id="hr1"></div>
+
 </header>
 <header>
 <br>
+
+<!-- DIV TO CENTER THIS  -->
 
   <!-- this is a very rough idea of what i want -->
 
@@ -12,16 +21,32 @@ USER ACTIONS
 <div style="display:inline-block; vertical-align: middle;">
     <%  if user_signed_in? %>
   <button><%= link_to 'Sign Out', '/users/sign_out', method: :delete %></button> |
-  <button> <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %><br></button>
+  <button> <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %></button>
     <% else %>
-  <button>
-  <%= link_to 'Sign In', '/users/sign_in', method: :get %></button> |
+
+
+  <button><%= link_to 'Sign In', '/users/sign_in', method: :get, remote: true %></button> |
+
+
   <button><%= link_to 'Sign Up', '/users/sign_up', method: :get %></button> |
-  <button><%= link_to 'New Account', '/accounts/new', method: :get %></button>
+
+
+
+  <button><%= link_to 'New Account', '/accounts/new', method: :get, remote: true %></button>
+
+
+
+
     <% end %>
 </div>
-<hr>
+<br>
+<br>
 
+<!-- END OF DIV TO CENTER THIS  -->
+
+
+<div id="hr1"></div>
+<br>
 <table>
   <thead>
     <tr>
@@ -31,13 +56,14 @@ USER ACTIONS
   </thead>
 
   <tbody>
+
     <% @accounts.each do |account| %>
     <tr>
-      <!-- THIS IS CHANGED  -->
-      <br>
       <td><button><%= link_to "#{account.name}", account, remote: true %></button></td>
     </tr>
     <% end %>
   </tbody>
 </table>
+
+
 <br>

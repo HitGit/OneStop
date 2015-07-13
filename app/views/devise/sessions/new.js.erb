@@ -1,0 +1,3 @@
+var dialog = $('#dialog')
+dialog.html('<%= escape_javascript(render partial: 'devise.new.html.erb', locals: {account: @account}).html_safe %>')
+dialog.dialog('open')
