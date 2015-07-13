@@ -15,5 +15,16 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-
-
+$(function() {
+  $( "#dialog" ).dialog({
+    autoOpen: false,
+    show: {
+      effect: "blind",
+      duration: 150
+    },
+    hide: {
+      effect: "explode",
+      duration: 150
+    }
+  });
+});

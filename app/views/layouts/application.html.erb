@@ -2,19 +2,27 @@
 <html>
 <head>
   <title>OneStop</title>
+
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css">
 </head>
 <body>
-
-
 <!--for Devise-->
-<p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
-
-
 <%= yield %>
+
+<button type="button"><%= link_to 'Back to Home', root_path %></button>
+
+
+
+<!-- I don't know where to keep this dialog div but it is realy important right now that it is in the app.. -->
+<div id="dialog" title="Information">
+</div>
+
 
 </body>
 </html>

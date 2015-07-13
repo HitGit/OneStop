@@ -1,47 +1,43 @@
-<h1 align="center">OneStop</h1>
+
+  <h1 align="right">OneStop </h1><hr>
+</header>
+<header>
+<br>
+
+  <!-- this is a very rough idea of what i want -->
+
+USER ACTIONS
+<br>
+<br>
+<div style="display:inline-block; vertical-align: middle;">
+    <%  if user_signed_in? %>
+  <button><%= link_to 'Sign Out', '/users/sign_out', method: :delete %></button> |
+  <button> <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %><br></button>
+    <% else %>
+  <button>
+  <%= link_to 'Sign In', '/users/sign_in', method: :get %></button> |
+  <button><%= link_to 'Sign Up', '/users/sign_up', method: :get %></button> |
+  <button><%= link_to 'New Account', '/accounts/new', method: :get %></button>
+    <% end %>
+</div>
+<hr>
 
 <table>
   <thead>
     <tr>
-      <th>BACON</th>
+      <th>Accounts</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
-
   <tbody>
     <% @accounts.each do |account| %>
-      <tr>
-        <td><%= account.name %></td>
-        <td><%= link_to 'Show', account %></td>
-        <td><%= link_to 'Edit', edit_account_path(account) %></td>
-        <td><%= link_to 'Destroy', account, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <tr>
+      <!-- THIS IS CHANGED  -->
+      <br>
+      <td><button><%= link_to "#{account.name}", account, remote: true %></button></td>
+    </tr>
     <% end %>
   </tbody>
 </table>
-
 <br>
-
-
-<%  if user_signed_in? %>
-<<<<<<< HEAD
-
-
-  <%= link_to 'Sign Out', destroy_user_session_path, method: :delete%><br>
-  <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %><br>
-    <% else %>
-    <%= link_to 'Sign In', new_user_session_path %><br>
-    <%= link_to 'Sign Up', new_user_registration_path %><br>
-    <%= link_to 'New Account', new_account_path %><br>
-
-<% end %>
-=======
-  <%= button_to 'Sign Out', '/users/sign_out', method: :delete %>
-  <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %><br>
-    <% else %>
-    <%= button_to 'Sign In', '/users/sign_in', method: :get %>
-    <%= button_to 'Sign Up', '/users/sign_up', method: :get %>
-    <%= button_to 'New Account', '/accounts/new', method: :get %>
-<% end %>
->>>>>>> b488e6251172277206b49216093eb2a1862aa184
