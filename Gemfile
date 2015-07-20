@@ -13,15 +13,14 @@ gem 'devise', '~> 3.5.1'
 gem 'tzinfo-data', platforms: [:mingw, :mswin]
 gem 'omniauth-twitter'
 gem 'bootstrap-sass', '~> 3.3.5.1'
-gem 'tzinfo-data'
 gem "omniauth-google-oauth2"
 
 gem 'omniauth-facebook'
 
-# ;ladsf;lasjdf;lasdf;
+gem 'koala'
 
-gem 'google_plus', '~> 0.2.4'
-
+# gem 'google-api-client'
+gem 'twitter'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'

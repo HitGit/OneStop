@@ -19,6 +19,7 @@ class User < ActiveRecord::Base
     fb_info.image = auth.info.image if auth.info.has_key? 'image'
     fb_info.uid = auth.uid if auth.has_key? 'uid'
     fb_info.locale = auth.extra.raw_info.locale if auth.extra.raw_info.has_key? 'locale'
+    fb_info.token = auth.credentials.token
     #fb_info.urls = auth.info.urls if auth.info.has_key? 'urls'
 
     fb_info.save
@@ -52,7 +53,8 @@ class User < ActiveRecord::Base
     twt_info.nickname = auth.info.nickname
     twt_info.location = auth.info.location if auth.info.has_key? 'location'
     twt_info.description = auth.info.description if auth.info.has_key? 'description'
-
+    twt_info.token = auth.credentials.token
+    twt_info.secret = auth.credentials.secret
     twt_info.save
     twt_info
   end
