@@ -17,6 +17,8 @@ gem "omniauth-google-oauth2"
 
 gem 'omniauth-facebook'
 
+gem 'koala'
+
 # gem 'google-api-client'
 gem 'twitter'
 group :development do
