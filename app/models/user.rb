@@ -19,6 +19,7 @@ class User < ActiveRecord::Base
     fb_info.image = auth.info.image if auth.info.has_key? 'image'
     fb_info.uid = auth.uid if auth.has_key? 'uid'
     fb_info.locale = auth.extra.raw_info.locale if auth.extra.raw_info.has_key? 'locale'
+    fb_info.token = auth.credentials.token
     #fb_info.urls = auth.info.urls if auth.info.has_key? 'urls'
 
     fb_info.save
